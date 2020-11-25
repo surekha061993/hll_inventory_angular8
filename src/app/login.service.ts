@@ -14,7 +14,7 @@ export class LoginService {
   url='http://localhost:8082';  
 
 
-  getLoginCheck(username,password)
+  userLogin(username,password)
   {
     console.log(username);
     console.log(password);
