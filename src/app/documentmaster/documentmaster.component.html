@@ -63,14 +63,16 @@
 </div>
 
 <div style="margin-left:22%">
-
 <div class="w3-container">
+  <div style="text-align: center;">
+  <h1>{{message}}</h1>
+</div>
  <h2>Document Form</h2>
  <hr>
   <div col-md-12>
       <div class="row">
         
-    <div class="col-md-6">
+    <div class="col-md-6" *ngIf="showDiv">
         <div class="card card0 border-0">
             <div class="row d-flex">
             <form action="" method="post">
@@ -83,25 +85,58 @@
     </div>
     </div>
     </div>
+
+    <div *ngIf="editDiv" class="col-md-6">
+      <div class="card card0 border-0">
+          <div class="row d-flex">
+          <form action="" method="post">
+            <div>
+              <input type="hidden" name="docid" id="docid" [(ngModel)]="document.docid" class="form-control ">
+            </div>
+            
+              <div class="form-group">
+                  <label for="pwd">Document Name:</label>
+                  <input type="text" class="form-control" id="docname" [(ngModel)]='document.docname' placeholder="Document Name" name="docname">
+              </div>
+              <button type="submit" (click)='updateDocuments()' class="btn btn-info">Update</button>
+          </form>
+  </div>
+  </div>
+  </div>
+
+
+
     <div class="col-md-6">
+
+      <!-- <div class="row">
+      <div id="custom-search-input">
+        <div class="input-group col-md-12" style="text-align: center;">
+          <input type="text" class="form-control"  placeholder="Search By Name" style="width: 300px;" namr="docname" [(ngModel)]="docname">
+        <span class="input-group-btn">
+          <button class="btn btn-danger" type="button" (click)="findDocumentByName()">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+     -->
+
+
         <table class="table table-striped">
             <thead>
               <tr>
-                <th>#</th>
+                <th>SR.NO</th>
                 <th>Firstname</th>
                 <th>Action</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>1</td>
-                <td>Anna</td>
-                <td>Edit | Delete</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>John</td>
-                <td>Edit | Delete</td>
+              <tr *ngFor="let document of documents">
+                <td>{{document.docid}}</td>
+                <td>{{document.docname}}</td>
+                <td><button class="btn btn-success" (click)="editDocument(document.docid)">Edit</button> </td>
+                <td><button class="btn btn-danger" (click)="deleteDocument(document.docid)">Delete</button> </td>
               </tr>
             </tbody>
           </table>

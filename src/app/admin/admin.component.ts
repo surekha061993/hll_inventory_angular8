@@ -38,4 +38,10 @@ export class AdminComponent implements OnInit {
     sessionStorage.removeItem('token')
     this.router.navigate([''])
   }
+
+  documentForm()
+  {
+    
+    this.router.navigate(['document'],{relativeTo:this.route})
+  }
 }

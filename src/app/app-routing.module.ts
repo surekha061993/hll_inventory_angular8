@@ -11,9 +11,11 @@ const routes: Routes = [
 
   {path:'',component:LoginComponent},
   {path:'admin/:userId',component:AdminComponent},
-  {path:'user/:userId',component:UserComponent},
-  {path: 'document',component: DocumentmasterComponent }
 
+  {path:'user/:userId',component:UserComponent},
+  {path: 'document',component: DocumentmasterComponent },
+
+  {path:'document/:docid',component:UserComponent},
 
 ];
 
