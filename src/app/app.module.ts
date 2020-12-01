@@ -7,11 +7,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule} from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { AdminComponent } from './admin/admin.component';
+import { LoginService } from './login.service';
+import { UserComponent } from './user/user.component';
+import { DocumentmasterComponent } from './documentmaster/documentmaster.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    AdminComponent,
+    UserComponent,
+    DocumentmasterComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -21,7 +29,7 @@ import { RouterModule } from '@angular/router';
     RouterModule
    
   ],
-  providers: [],
+  providers: [LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
