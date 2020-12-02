@@ -91,21 +91,18 @@
           <div class="row d-flex">
           <form action="" method="post">
             <div>
-              <input type="hidden" name="docid" id="docid" [(ngModel)]="document.docid" class="form-control ">
+              <input type="hidden" name="docid" id="docid" [(ngModel)]="doc.docid" class="form-control ">
             </div>
             
               <div class="form-group">
                   <label for="pwd">Document Name:</label>
-                  <input type="text" class="form-control" id="docname" [(ngModel)]='document.docname' placeholder="Document Name" name="docname">
+                  <input type="text" class="form-control" id="docname" [(ngModel)]='doc.docname' placeholder="Document Name" name="docname">
               </div>
-              <button type="submit" (click)='updateDocuments()' class="btn btn-info">Update</button>
+              <button type="submit" (click)='updateDocuments(doc)' class="btn btn-info">Update</button>
           </form>
   </div>
   </div>
   </div>
-
-
-
     <div class="col-md-6">
 
       <!-- <div class="row">
@@ -121,14 +118,13 @@
     </div>
   </div>
      -->
-
-
         <table class="table table-striped">
             <thead>
               <tr>
                 <th>SR.NO</th>
-                <th>Firstname</th>
-                <th>Action</th>
+                <th>DocumentName</th>
+                <th>Edit</th>
+                <th>Delete</th>
               </tr>
             </thead>
             <tbody>

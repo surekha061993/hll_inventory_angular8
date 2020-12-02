@@ -34,7 +34,7 @@ export class DocumentserviceService {
   public updateDocument(document)
   {
   console.log("In service :" +document);
-   return this.http.put<number>(this.url+'/updateDocument',document);
+   return this.http.put<Document[]>("http://localhost:8082/document/update",document);
   }
 
   public searchDocumentByName(docname)

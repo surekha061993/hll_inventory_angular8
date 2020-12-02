@@ -13,20 +13,21 @@ export class DocumentmasterComponent implements OnInit {
 
   document = new Document();
   login =new Login();
+  doc1:Document[];
 
-  doc:Document[]=[];
-  
   showDiv :boolean=true;
   editDiv :boolean=false;
   
   documents:any;
   docname:string;
 
+   doc:any={};
   constructor(private documentService:DocumentserviceService,private router:Router,private route : ActivatedRoute) { }
 
   ngOnInit() {
       let response=this.documentService.gelAllDocument();
       response.subscribe((data)=>this.documents=data)
+
   }
   
   message:any;
@@ -47,14 +48,23 @@ export class DocumentmasterComponent implements OnInit {
     let response=this.documentService.editDocument(docid);
     response.subscribe(data =>{
     console.log(data);
-    this.documents=data});
+    this.doc=data});
   }
   
-  updateDocuments() {
-    let response=this.documentService.updateDocument(this.document);
-    response.subscribe((data)=>this.message=data);
-  }
+  // updateDocuments(document) {
+  //   let response=this.documentService.updateDocument(document);
+  //   response.subscribe(data=>{
+  //     console.log(data);
+  //     this.documents=data});
+  // }
 
+  updateDocuments(u){
+    console.log(u);
+    this.documentService.updateDocument(u).subscribe(rs=>{
+      this.documents=rs;
+    });
+   }
+  
   public deleteDocument(docid:number)
   {
     let response=this.documentService.deleteDocument(docid);
@@ -65,5 +75,10 @@ export class DocumentmasterComponent implements OnInit {
   {
     let response=this.documentService.searchDocumentByName(this.docname);
     response.subscribe((data)=>this.documents=data);
+  }
+  logOut() {
+    console.log("hiiii");
+    sessionStorage.removeItem('token')
+    this.router.navigate([''])
   }
 }
