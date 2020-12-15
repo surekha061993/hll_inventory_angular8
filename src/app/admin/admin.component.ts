@@ -39,6 +39,11 @@ export class AdminComponent implements OnInit {
     this.router.navigate([''])
   }
 
+  formMaster()
+      {
+        this.router.navigate(['form'],{relativeTo:this.route})
+      }
+
   documentForm()
   {
     

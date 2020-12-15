@@ -20,14 +20,15 @@ export class DocumentmasterComponent implements OnInit {
   
   documents:any;
   docname:string;
+  //docDeleteFlag:number;
 
    doc:any={};
   constructor(private documentService:DocumentserviceService,private router:Router,private route : ActivatedRoute) { }
 
   ngOnInit() {
+      //alert(this.docDeleteFlag);
       let response=this.documentService.gelAllDocument();
       response.subscribe((data)=>this.documents=data)
-
   }
   
   message:any;
@@ -81,4 +82,10 @@ export class DocumentmasterComponent implements OnInit {
     sessionStorage.removeItem('token')
     this.router.navigate([''])
   }
+
+  formMaster()
+  {
+    this.router.navigate(['form'],{relativeTo:this.route})
+  }
+
 }

@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DocumentmasterComponent } from './documentmaster.component';
+import { DocumentnumberingComponent } from './documentnumbering.component';
 
-describe('DocumentmasterComponent', () => {
-  let component: DocumentmasterComponent;
-  let fixture: ComponentFixture<DocumentmasterComponent>;
+describe('DocumentnumberingComponent', () => {
+  let component: DocumentnumberingComponent;
+  let fixture: ComponentFixture<DocumentnumberingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DocumentmasterComponent ]
+      declarations: [ DocumentnumberingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DocumentmasterComponent);
+    fixture = TestBed.createComponent(DocumentnumberingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

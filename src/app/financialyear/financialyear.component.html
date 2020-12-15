@@ -1,0 +1,109 @@
+<app-header></app-header>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="card-header">Financial Year Master </div>
+    <div class="row">
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <div class="card card-register mx-auto mt-5" *ngIf="showDiv">
+          <div class="card-header">Add Financial Year </div><br>
+          <form action="" method="post">
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <input class="form-control" id="finYearStartDate"  [(ngModel)]='financialyear.finYearStartDate' type="date"
+                    aria-describedby="nameHelp" name="finYearStartDate" placeholder="Year Start Date">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="finYearEndDate"  [(ngModel)]='financialyear.finYearEndDate' type="date"
+                      aria-describedby="nameHelp" name="finYearEndDate" placeholder="Year End Date">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="finYear"  [(ngModel)]='financialyear.finYear' type="text"
+                      aria-describedby="nameHelp" name="finYear" placeholder="Financial Year">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='saveFinancialYear()' class="btn btn-info">Submit</button>
+          </form>
+        </div>
+        <div class="card card-register mx-auto mt-5" *ngIf="editDiv">
+          <div class="card-header">Update Financial Year </div><br>
+          <form action="" method="post">
+            <div>
+              <input type="hidden" name="finYearId" id="finYearId" [(ngModel)]="fyear.finYearId" class="form-control ">
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <input class="form-control" id="finYearStartDate" [(ngModel)]='fyear.finYearStartDate' type="date"
+                    aria-describedby="nameHelp" placeholder="Financial Year Start Date" name="finYearStartDate">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="finYearEndDate" [(ngModel)]='fyear.finYearEndDate' type="date"
+                      aria-describedby="nameHelp" placeholder="Financial Year End Date" name="finYearEndDate">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="finYear"  [(ngModel)]='fyear.finYear' type="text"
+                      aria-describedby="nameHelp" name="finYear" placeholder="Financial Year">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='updateFinancialYear(fyear)' class="btn btn-info">Update</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <br><br>
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Financial Master Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>SR.NO</th>
+                  <th>Fin Year Start</th>
+                  <th>Fin Year End</th>
+                  <th>Fin Year </th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let financialYear of financialY">
+                  <tr *ngIf="financialYear.finDeleteFlag == '0'">
+                    <td>{{financialYear.finYearId}}</td>
+                    <td>{{financialYear.finYearStartDate}}</td>
+                    <td>{{financialYear.finYearEndDate}}</td>
+                    <td>{{financialYear.finYear}}</td>
+                    <td><button class="btn btn-success" (click)="editFinancialYear(financialYear.finYearId)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deleteFinancialYear(financialYear.finYearId)">Delete</button> </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>
