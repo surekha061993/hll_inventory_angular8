@@ -52,14 +52,6 @@
                   <th>Delete</th>
                 </tr>
               </thead>
-              <tfoot>
-                <tr>
-                  <th>SR.NO</th>
-                  <th>DocumentName</th>
-                  <th>Edit</th>
-                  <th>Delete</th>
-                </tr>
-              </tfoot>
               <tbody>
                 <ng-container *ngFor="let document of documents">
                   <tr *ngIf="document.docDeleteFlag == '0'">

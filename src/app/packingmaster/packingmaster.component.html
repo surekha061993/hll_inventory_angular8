@@ -1,0 +1,73 @@
+<app-header></app-header>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="card-header">Packing Master </div>
+    <div class="row">
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <div class="card card-register mx-auto mt-5" *ngIf="showDiv">
+          <div class="card-header">Add Packing Master</div><br>
+          <form action="" method="post">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="packType"  [(ngModel)]='packing.packType' type="text"
+                      aria-describedby="nameHelp" name="packType" placeholder="Pack Type">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='savePacking()' class="btn btn-info">Submit</button>
+          </form>
+        </div>
+        <div class="card card-register mx-auto mt-5" *ngIf="editDiv">
+          <div class="card-header">Update Packing Master </div><br>
+          <form action="" method="post">
+            <div>
+              <input type="hidden" name="packId" id="packId" [(ngModel)]="packEdit.packId" class="form-control ">
+            </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="packType"  [(ngModel)]='packEdit.packType' type="text"
+                      aria-describedby="nameHelp" name="packType" placeholder="Pack Type">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='updatePacking(packEdit)' class="btn btn-info">Update</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <br><br>
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Form Master Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>SR.NO</th>
+                  <th>Packing Type </th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let packing of pack">
+                  <tr *ngIf="packing.packDeleteFlag == '0'">
+                    <td>{{packing.packId}}</td>
+                    <td>{{packing.packType}}</td>
+                    <td><button class="btn btn-success" (click)="editPacking(packing.packId)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deletePacking(packing.packId)">Delete</button> </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>

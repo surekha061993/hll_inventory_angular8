@@ -11,7 +11,6 @@ import { AdminComponent } from './admin/admin.component';
 import { LoginService } from './login.service';
 import { UserComponent } from './user/user.component';
 import { DocumentmasterComponent } from './documentmaster/documentmaster.component';
-import { FormmasterComponent } from './admin/formmaster/formmaster.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -20,6 +19,16 @@ import { FinancialyearComponent } from './financialyear/financialyear.component'
 
 import { from } from 'rxjs';
 import { DocumentnumberingComponent } from './documentnumbering/documentnumbering.component';
+import { PackingmasterComponent } from './packingmaster/packingmaster.component';
+import { FormmasterComponent } from './formmaster/formmaster.component';
+import { TaxmasterComponent } from './taxmaster/taxmaster.component';
+import { ManufacturermasterComponent } from './manufacturermaster/manufacturermaster.component';
+import { CategorymasterComponent } from './categorymaster/categorymaster.component';
+import { WarehousemasterComponent } from './warehousemaster/warehousemaster.component';
+import { LabstoremasterComponent } from './labstoremaster/labstoremaster.component';
+import { UomComponent } from './uom/uom.component';
+import { ChargesmasterComponent } from './chargesmaster/chargesmaster.component';
+import { HospitalmasterComponent } from './hospitalmaster/hospitalmaster.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,12 +36,21 @@ import { DocumentnumberingComponent } from './documentnumbering/documentnumberin
     AdminComponent,
     UserComponent,
     DocumentmasterComponent,
-    FormmasterComponent,
     SidebarComponent,
     HeaderComponent,
     FooterComponent,
     FinancialyearComponent,
-    DocumentnumberingComponent
+    DocumentnumberingComponent,
+    PackingmasterComponent,
+    FormmasterComponent,
+    TaxmasterComponent,
+    ManufacturermasterComponent,
+    CategorymasterComponent,
+    WarehousemasterComponent,
+    LabstoremasterComponent,
+    UomComponent,
+    ChargesmasterComponent,
+    HospitalmasterComponent
   ],
   imports: [
     BrowserModule,

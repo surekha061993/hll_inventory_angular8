@@ -3,7 +3,10 @@ import { Login } from '../model/login.model';
 import { InventoryFinancialYear } from '../model/InventoryFinancialYear';
 import { FinancialyearserviceService } from '../financialyearservice.service';
 import { Router, ActivatedRoute } from '@angular/router';
-
+/**
+ * @author Surekha Londhe
+ * @Date 14-12-2020
+ */
 @Component({
   selector: 'app-financialyear',
   templateUrl: './financialyear.component.html',
@@ -13,7 +16,6 @@ export class FinancialyearComponent implements OnInit {
 
   financialyear = new InventoryFinancialYear();
   login =new Login();
-  //doc1:InventoryFinancialYear[];
 
   showDiv :boolean=true;
   editDiv :boolean=false;
@@ -26,8 +28,7 @@ export class FinancialyearComponent implements OnInit {
   ngOnInit() {
       let response=this.financialYearService.getAllFinancialYear();
       response.subscribe((data)=>this.financialY=data)
-
-  }
+    }
   
   message:any;
 
@@ -58,18 +59,15 @@ export class FinancialyearComponent implements OnInit {
   public deleteFinancialYear(finYearId:number)
   {
     let response=this.financialYearService.deleteFinancialYear(finYearId);
+    
     response.subscribe((data)=>this.financialY=data);
+    alert("Record Deleted Successfully");
+    this.router.navigate(['financial_year']);
   }
-
+  
   logOut() {
     console.log("hiiii");
     sessionStorage.removeItem('token')
     this.router.navigate([''])
   }
-
-  formMaster()
-  {
-    this.router.navigate(['form'],{relativeTo:this.route})
-  }
-
 }

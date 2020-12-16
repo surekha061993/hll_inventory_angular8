@@ -4,6 +4,11 @@ import { Document } from '../model/document.model'
 import { DocumentserviceService } from '../documentservice.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
+/**
+ * @author Surekha Londhe
+ * @Date 7-12-2020
+ */
+
 @Component({
   selector: 'app-documentmaster',
   templateUrl: './documentmaster.component.html',
