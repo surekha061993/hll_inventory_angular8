@@ -34,6 +34,7 @@ export class PackingmasterComponent implements OnInit {
   {
      let response=this.packingService.addPacking(this.packing);
      response.subscribe((data)=>this.pack=data);
+     alert("Data Added Successfully");
   }
 
   public editPacking(packId:number)
@@ -50,15 +51,17 @@ export class PackingmasterComponent implements OnInit {
     console.log(u);
     this.packingService.updatePacking(u).subscribe(rs=>{
       this.pack=rs;
+      alert("Updated Successfully");
+      window.location.reload();
     });
    }
   
   public deletePacking(packId:number)
   {
     let response=this.packingService.deletePacking(packId);
-    alert("Record Deleted Successfully");
-    response.subscribe((data)=>this.pack=data);
-    this.router.navigate(['form']);
+     response.subscribe((data)=>this.pack=data);
+     alert("Record Deleted Successfully");
+     window.location.reload();
   }
   
   logOut() {

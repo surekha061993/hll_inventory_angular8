@@ -10,6 +10,9 @@ import { DocumentnumberingComponent } from './documentnumbering/documentnumberin
 import { FinancialyearComponent } from './financialyear/financialyear.component';
 import { FormmasterComponent } from './formmaster/formmaster.component';
 import { PackingmasterComponent } from './packingmaster/packingmaster.component';
+import { ChargesmasterComponent } from './chargesmaster/chargesmaster.component';
+import { ManufacturermasterComponent } from './manufacturermaster/manufacturermaster.component';
+import { CategorymasterComponent } from './categorymaster/categorymaster.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -25,7 +28,10 @@ const routes: Routes = [
   {path:'financial_year',component:FinancialyearComponent},
   {path:'document_numbering',component:DocumentnumberingComponent},
   {path:'form_master',component:FormmasterComponent},
-  {path:'packing_master',component:PackingmasterComponent}
+  {path:'packing_master',component:PackingmasterComponent},
+  {path:'charges_master',component:ChargesmasterComponent},
+  {path:'manufactur_master',component:ManufacturermasterComponent},
+  {path:'category_master',component:CategorymasterComponent}
 ];
 
 @NgModule({

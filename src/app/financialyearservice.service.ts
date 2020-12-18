@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { InventoryFinancialYear } from './model/InventoryFinancialYear';
+import { FinancialYearMaster } from './model/financialyearmaster';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class FinancialyearserviceService {
   addFinancialYear(financialYear)
   {
     console.log("In service :" +financialYear);
-    return this.http.post<number>(this.url+'/addFinYear',financialYear);
+    return this.http.post<number>(this.url+'/addFinancial',financialYear);
   }
   
   // addFinancialYear(financialYear)
@@ -25,23 +25,23 @@ export class FinancialyearserviceService {
 
   public getAllFinancialYear()
   {
-    return this.http.get("http://localhost:8082/financialYear/getAllFinancialYear")
+    return this.http.get("http://localhost:8082/financialYear/getAll")
   }
 
   public deleteFinancialYear(finYearId)
   {
-    return this.http.delete("http://localhost:8082/financialYear/deleteFinYear/"+finYearId)
+    return this.http.delete("http://localhost:8082/financialYear/delete/"+finYearId)
   }
 
   public editFinancialYear(finYearId)
   {
-    return this.http.get("http://localhost:8082/financialYear/getFinancialYear/"+finYearId);
+    return this.http.get("http://localhost:8082/financialYear/getFinancial/"+finYearId);
   }
 
   public updateFinancialYear(financialyear)
   {
   console.log("In service :" +financialyear);
-   return this.http.put<InventoryFinancialYear[]>("http://localhost:8082/financialYear/updateFinancialYear",financialyear);
+   return this.http.put<FinancialYearMaster[]>("http://localhost:8082/financialYear/update",financialyear);
   }
 
 }

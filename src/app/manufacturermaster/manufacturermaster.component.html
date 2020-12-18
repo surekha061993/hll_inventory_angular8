@@ -1,1 +1,91 @@
-<p>manufacturermaster works!</p>
+<app-header></app-header>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="card-header">Manufacturer Master </div>
+    <div class="row">
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <div class="card card-register mx-auto mt-5" *ngIf="showDiv">
+          <div class="card-header">Add Manufacturer Master</div><br>
+          <form action="" method="post">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="manufacturerName"  [(ngModel)]='manufactur.manufacturerName' type="text"
+                      aria-describedby="nameHelp" name="manufacturerName" placeholder="Manufacturer Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <textarea class="form-control" id="manufacturerDetail"  [(ngModel)]='manufactur.manufacturerDetail' type="text"
+                      aria-describedby="nameHelp" name="manufacturerDetail" placeholder="Manufacturer Detail"></textarea>
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='saveManufactur()' class="btn btn-info">Submit</button>
+          </form>
+        </div>
+        <div class="card card-register mx-auto mt-5" *ngIf="editDiv">
+          <div class="card-header">Update Manufactur Master </div><br>
+          <form action="" method="post">
+            <div>
+              <input type="hidden" name="manufacturerId" id="manufacturerId" [(ngModel)]="manuEdit.manufacturerId" class="form-control ">
+            </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="manufacturerName"  [(ngModel)]='manuEdit.manufacturerName' type="text"
+                      aria-describedby="nameHelp" name="manufacturerName" placeholder="Manufacture Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <textarea class="form-control" id="manufacturerDetail"  [(ngModel)]='manuEdit.manufacturerDetail' type="text"
+                      aria-describedby="nameHelp" name="manufacturerDetail" placeholder="Manufacture Details"></textarea>
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='updateManufactur(manuEdit)' class="btn btn-info">Update</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <br><br>
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Manufacturer Master Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>SR.NO</th>
+                  <th>Manufactur Name </th>
+                  <th>Manufactur Details </th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let manufactur of manuShow">
+                  <tr *ngIf="manufactur.manufacturerStatus == 'Y'">
+                    <td>{{manufactur.manufacturerId}}</td>
+                    <td>{{manufactur.manufacturerName}}</td>
+                    <td>{{manufactur.manufacturerDetail}}</td>
+                    <td><button class="btn btn-success" (click)="editManufactur(manufactur.manufacturerId)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deleteManufactur(manufactur.manufacturerId)">Delete</button> </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>

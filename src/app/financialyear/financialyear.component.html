@@ -10,24 +10,24 @@
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
-                  <input class="form-control" id="finYearStartDate"  [(ngModel)]='financialyear.finYearStartDate' type="date"
-                    aria-describedby="nameHelp" name="finYearStartDate" placeholder="Year Start Date">
+                  <input class="form-control" id="yearStartDate"  [(ngModel)]='financialyear.yearStartDate' type="date"
+                    aria-describedby="nameHelp" name="yearStartDate" placeholder="Year Start Date">
                 </div>
               </div>
             </div>
             <div class="form-group">
                 <div class="form-row">
                   <div class="col-md-6">
-                    <input class="form-control" id="finYearEndDate"  [(ngModel)]='financialyear.finYearEndDate' type="date"
-                      aria-describedby="nameHelp" name="finYearEndDate" placeholder="Year End Date">
+                    <input class="form-control" id="yearEndDate"  [(ngModel)]='financialyear.yearEndDate' type="date"
+                      aria-describedby="nameHelp" name="yearEndDate" placeholder="Year End Date">
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="form-row">
                   <div class="col-md-6">
-                    <input class="form-control" id="finYear"  [(ngModel)]='financialyear.finYear' type="text"
-                      aria-describedby="nameHelp" name="finYear" placeholder="Financial Year">
+                    <input class="form-control" id="yearFinancial"  [(ngModel)]='financialyear.yearFinancial' type="text"
+                      aria-describedby="nameHelp" name="yearFinancial" placeholder="Financial Year">
                   </div>
                 </div>
               </div>
@@ -38,29 +38,29 @@
           <div class="card-header">Update Financial Year </div><br>
           <form action="" method="post">
             <div>
-              <input type="hidden" name="finYearId" id="finYearId" [(ngModel)]="fyear.finYearId" class="form-control ">
+              <input type="hidden" name="yearId" id="yearId" [(ngModel)]="fyear.yearId" class="form-control ">
             </div>
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
-                  <input class="form-control" id="finYearStartDate" [(ngModel)]='fyear.finYearStartDate' type="date"
-                    aria-describedby="nameHelp" placeholder="Financial Year Start Date" name="finYearStartDate">
+                  <input class="form-control" id="yearStartDate" [(ngModel)]='fyear.yearStartDate' type="date"
+                    aria-describedby="nameHelp" placeholder="Financial Year Start Date" name="yearStartDate">
                 </div>
               </div>
             </div>
             <div class="form-group">
                 <div class="form-row">
                   <div class="col-md-6">
-                    <input class="form-control" id="finYearEndDate" [(ngModel)]='fyear.finYearEndDate' type="date"
-                      aria-describedby="nameHelp" placeholder="Financial Year End Date" name="finYearEndDate">
+                    <input class="form-control" id="yearEndDate" [(ngModel)]='fyear.yearEndDate' type="date"
+                      aria-describedby="nameHelp" placeholder="Financial Year End Date" name="yearEndDate">
                   </div>
                 </div>
               </div>
               <div class="form-group">
                 <div class="form-row">
                   <div class="col-md-6">
-                    <input class="form-control" id="finYear"  [(ngModel)]='fyear.finYear' type="text"
-                      aria-describedby="nameHelp" name="finYear" placeholder="Financial Year">
+                    <input class="form-control" id="yearFinancial"  [(ngModel)]='fyear.yearFinancial' type="text"
+                      aria-describedby="nameHelp" name="yearFinancial" placeholder="Financial Year">
                   </div>
                 </div>
               </div>
@@ -79,22 +79,22 @@
               <thead>
                 <tr>
                   <th>SR.NO</th>
-                  <th>Fin Year Start</th>
-                  <th>Fin Year End</th>
-                  <th>Fin Year </th>
+                  <th>Year Start</th>
+                  <th>Year End</th>
+                  <th>Year </th>
                   <th>Edit</th>
                   <th>Delete</th>
                 </tr>
               </thead>
               <tbody>
                 <ng-container *ngFor="let financialYear of financialY">
-                  <tr *ngIf="financialYear.finDeleteFlag == '0'">
-                    <td>{{financialYear.finYearId}}</td>
-                    <td>{{financialYear.finYearStartDate}}</td>
-                    <td>{{financialYear.finYearEndDate}}</td>
-                    <td>{{financialYear.finYear}}</td>
-                    <td><button class="btn btn-success" (click)="editFinancialYear(financialYear.finYearId)">Edit</button> </td>
-                    <td><button class="btn btn-danger" (click)="deleteFinancialYear(financialYear.finYearId)">Delete</button> </td>
+                  <tr *ngIf="financialYear.yearDeleteFlag == '0'">
+                    <td>{{financialYear.yearId}}</td>
+                    <td>{{financialYear.yearStartDate}}</td>
+                    <td>{{financialYear.yearEndDate}}</td>
+                    <td>{{financialYear.yearFinancial}}</td>
+                    <td><button class="btn btn-success" (click)="editFinancialYear(financialYear.yearId)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deleteFinancialYear(financialYear.yearId)">Delete</button> </td>
                   </tr>
                 </ng-container>
               </tbody>

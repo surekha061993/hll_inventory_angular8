@@ -1,1 +1,91 @@
-<p>categorymaster works!</p>
+<app-header></app-header>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="card-header">Category Master </div>
+    <div class="row">
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <div class="card card-register mx-auto mt-5" *ngIf="showDiv">
+          <div class="card-header">Add Category Master</div><br>
+          <form action="" method="post">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="categoryName"  [(ngModel)]='category.categoryName' type="text"
+                      aria-describedby="nameHelp" name="categoryName" placeholder="category Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="categoryPerifix"  [(ngModel)]='category.categoryPerifix' type="text"
+                      aria-describedby="nameHelp" name="categoryPerifix" placeholder="Prefix">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='saveCategory()' class="btn btn-info">Submit</button>
+          </form>
+        </div>
+        <div class="card card-register mx-auto mt-5" *ngIf="editDiv">
+          <div class="card-header">Update Manufactur Master </div><br>
+          <form action="" method="post">
+            <div>
+              <input type="hidden" name="categoryId" id="categoryId" [(ngModel)]="catEdit.categoryId" class="form-control ">
+            </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="categoryName"  [(ngModel)]='catEdit.categoryName' type="text"
+                      aria-describedby="nameHelp" name="categoryName" placeholder="Category Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="categoryPerifix"  [(ngModel)]='catEdit.categoryPerifix' type="text"
+                      aria-describedby="nameHelp" name="categoryPerifix" placeholder="Prefix">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='updateCategory(catEdit)' class="btn btn-info">Update</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <br><br>
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Category Master Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>SR.NO</th>
+                  <th>Category Name </th>
+                  <th>Prifix </th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let category of catShow">
+                  <tr *ngIf="category.categoryStatus == 'Y'">
+                    <td>{{category.categoryId}}</td>
+                    <td>{{category.categoryName}}</td>
+                    <td>{{category.categoryPerifix}}</td>
+                    <td><button class="btn btn-success" (click)="editCategory(category.categoryId)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deleteCategory(category.categoryId)">Delete</button> </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>

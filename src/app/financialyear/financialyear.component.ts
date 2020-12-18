@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Login } from '../model/login.model';
-import { InventoryFinancialYear } from '../model/InventoryFinancialYear';
 import { FinancialyearserviceService } from '../financialyearservice.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FinancialYearMaster } from '../model/financialyearmaster';
 /**
  * @author Surekha Londhe
  * @Date 14-12-2020
@@ -14,7 +14,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class FinancialyearComponent implements OnInit {
 
-  financialyear = new InventoryFinancialYear();
+  financialyear = new FinancialYearMaster();
   login =new Login();
 
   showDiv :boolean=true;
@@ -36,14 +36,17 @@ export class FinancialyearComponent implements OnInit {
   {
      let response=this.financialYearService.addFinancialYear(this.financialyear);
      response.subscribe((data)=>this.financialY=data);
+     
+     alert("Added Successfully");
+     window.location.reload();
   }
 
-  public editFinancialYear(finYearId:number)
+  public editFinancialYear(yearId:number)
   {
     this.showDiv=false;
     this.editDiv=true;
 
-    let response=this.financialYearService.editFinancialYear(finYearId);
+    let response=this.financialYearService.editFinancialYear(yearId);
     response.subscribe(data =>{
     console.log(data);
     this.fyear=data});
@@ -56,9 +59,9 @@ export class FinancialyearComponent implements OnInit {
     });
    }
   
-  public deleteFinancialYear(finYearId:number)
+  public deleteFinancialYear(yearId:number)
   {
-    let response=this.financialYearService.deleteFinancialYear(finYearId);
+    let response=this.financialYearService.deleteFinancialYear(yearId);
     
     response.subscribe((data)=>this.financialY=data);
     alert("Record Deleted Successfully");
