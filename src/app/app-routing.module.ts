@@ -32,7 +32,7 @@ const routes: Routes = [
   {path:'packing_master',component:PackingmasterComponent},
   {path:'charges_master',component:ChargesmasterComponent},
   {path:'manufactur_master',component:ManufacturermasterComponent},
-  {path:'category_master',component:CategorymasterComponent}
+  {path:'category_master',component:CategorymasterComponent},
   {path:'uom_master',component:UomComponent}
 ];
 
