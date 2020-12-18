@@ -13,6 +13,7 @@ import { PackingmasterComponent } from './packingmaster/packingmaster.component'
 import { ChargesmasterComponent } from './chargesmaster/chargesmaster.component';
 import { ManufacturermasterComponent } from './manufacturermaster/manufacturermaster.component';
 import { CategorymasterComponent } from './categorymaster/categorymaster.component';
+import { UomComponent } from './uom/uom.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path:'charges_master',component:ChargesmasterComponent},
   {path:'manufactur_master',component:ManufacturermasterComponent},
   {path:'category_master',component:CategorymasterComponent}
+  {path:'uom_master',component:UomComponent}
 ];
 
 @NgModule({
