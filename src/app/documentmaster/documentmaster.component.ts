@@ -42,6 +42,9 @@ export class DocumentmasterComponent implements OnInit {
   {
      let response=this.documentService.addDocument(this.document);
      response.subscribe((data)=>this.message=data);
+     alert("Added Successfully");
+     window.location.reload();
+
     //this.documentService.addDocument(this.document).subscribe(rs=>{this.document.docid=rs});
     //this.router.navigate(['admin'],{relativeTo:this.route})
   }
@@ -56,18 +59,14 @@ export class DocumentmasterComponent implements OnInit {
     console.log(data);
     this.doc=data});
   }
-  
-  // updateDocuments(document) {
-  //   let response=this.documentService.updateDocument(document);
-  //   response.subscribe(data=>{
-  //     console.log(data);
-  //     this.documents=data});
-  // }
 
   updateDocuments(u){
     console.log(u);
     this.documentService.updateDocument(u).subscribe(rs=>{
       this.documents=rs;
+      alert("Updated Successfully");
+      window.location.reload();
+
     });
    }
   

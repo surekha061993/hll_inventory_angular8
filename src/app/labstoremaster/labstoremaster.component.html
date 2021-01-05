@@ -1,1 +1,127 @@
-<p>labstoremaster works!</p>
+<app-header></app-header>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="card-header">Lab Store Master </div>
+    <div class="row">
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <div class="card card-register mx-auto mt-5" *ngIf="showDiv">
+          <div class="card-header">Add Lab Store Master</div><br>
+          <form action="" method="post">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="subinventory_name"  [(ngModel)]='labstore.subinventory_name' type="text"
+                      aria-describedby="nameHelp" name="subinventory_name" placeholder="Lab Store Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="state"  [(ngModel)]='labstore.state' type="text"
+                      aria-describedby="nameHelp" name="state" placeholder="State">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="contactPerName"  [(ngModel)]='labstore.contactPerName' type="text"
+                      aria-describedby="nameHelp" name="contactPerName" placeholder="Contact Person">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_subInventory_contact_no"  [(ngModel)]='labstore.inv_subInventory_contact_no' type="text"
+                      aria-describedby="nameHelp" name="inv_subInventory_contact_no" placeholder="Contact No">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='saveLabStore()' class="btn btn-info">Submit</button>
+          </form>
+        </div>
+        <div class="card card-register mx-auto mt-5" *ngIf="editDiv">
+          <div class="card-header">Update Lab Store Master </div><br>
+          <form action="" method="post">
+            <div>
+              <input type="hidden" name="subinventory_Id" id="subinventory_Id" [(ngModel)]="labstoreEdit.subinventory_Id" class="form-control ">
+            </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="subinventory_name"  [(ngModel)]='labstoreEdit.subinventory_name' type="text"
+                      aria-describedby="nameHelp" name="subinventory_name" placeholder="Lab Store Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="state"  [(ngModel)]='labstoreEdit.state' type="text"
+                      aria-describedby="nameHelp" name="state" placeholder="State">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="contactPerName"  [(ngModel)]='labstoreEdit.contactPerName' type="text"
+                      aria-describedby="nameHelp" name="contactPerName" placeholder="Contact Person">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_subInventory_contact_no"  [(ngModel)]='labstoreEdit.inv_subInventory_contact_no' type="text"
+                      aria-describedby="nameHelp" name="inv_subInventory_contact_no" placeholder="Contact NO">
+                  </div>
+                </div>
+              </div>
+
+            <button type="submit" (click)='updateLabStore(labstoreEdit)' class="btn btn-info">Update</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <br><br>
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> labstore Master Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>SR.NO</th>
+                  <th>Labstore Name </th>
+                  <th>State</th>
+                  <th>Contact Person</th>
+                  <th>Contact Number</th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let labstore of labstoreShow">
+                  <tr *ngIf="labstore.subInventorystatus == 'Y'">
+                    <td>{{labstore.subinventory_Id}}</td>
+                    <td>{{labstore.subinventory_name}}</td>
+                    <td>{{labstore.contactPerName}}</td>
+                    <td>{{labstore.inv_subInventory_contact_no}}</td>
+                    <td><button class="btn btn-success" (click)="editLabStore(labstore.subinventory_Id)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deleteLabStore(labstore.subinventory_Id)">Delete</button> </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>

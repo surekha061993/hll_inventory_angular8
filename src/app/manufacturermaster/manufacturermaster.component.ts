@@ -3,7 +3,10 @@ import { ManufacturserviceService } from '../manufacturservice.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ManufacturerMaster } from '../model/ManufacturerMaster';
 import { Login } from '../model/login.model';
-
+/**
+ * @author Surekha Londhe
+ * @Date 22-12-2020
+ */
 @Component({
   selector: 'app-manufacturermaster',
   templateUrl: './manufacturermaster.component.html',

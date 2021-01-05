@@ -3,7 +3,10 @@ import { CategoryserviceService } from '../categoryservice.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CategoryMaster } from '../model/categorymaster';
 import { Login } from '../model/login.model';
-
+/**
+ * @author Surekha Londhe
+ * @Date 18-12-2020
+ */
 @Component({
   selector: 'app-categorymaster',
   templateUrl: './categorymaster.component.html',

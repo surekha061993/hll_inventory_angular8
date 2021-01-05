@@ -1,0 +1,169 @@
+<app-header></app-header>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="card-header">Terms Condition Master </div>
+    <div class="row">
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <div class="card card-register mx-auto mt-5" *ngIf="showDiv">
+          <div class="card-header">Add Terms Condition </div><br>
+          <form action="" method="post">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_name"  [(ngModel)]='termsCondition.inv_name' type="text"
+                      aria-describedby="nameHelp" name="inv_name" placeholder="Name" style="margin-left: 10px;width: 330px;">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <textarea class="form-control" id="termsAndCondition"  [(ngModel)]='termsCondition.termsAndCondition' type="text"
+                      aria-describedby="nameHelp" name="termsAndCondition" placeholder="Terms and Condition"></textarea>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-md-12">
+                    <div id="input-type" class="row">
+                        <div class="col-sm-2">
+                            <label class="radio-inline">
+                                <input type="radio" name="temsAndCondStatus" value='PO' [(ngModel)]='termsCondition.temsAndCondStatus' checked > PO               
+                            </label>
+                        </div>
+                        <div class="col-sm-2">
+                            <label class="radio-inline">
+                                <input type="radio" name="temsAndCondStatus" value="LP" [(ngModel)]='termsCondition.temsAndCondStatus'> LP 
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            <label class="radio-inline">
+                                <input type="radio" name="temsAndCondStatus" value="Both" [(ngModel)]='termsCondition.temsAndCondStatus'> Both 
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+              <!-- <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <input type="radio" name="temsAndCondStatus" value='PO' [(ngModel)]='termsCondition.temsAndCondStatus' checked style="margin-left: 9px;"><label style="margin-top: -25px;margin-left: 26px;"> PO </label>
+                      </div>
+                      <div class="col-md-2">
+                        <input type="radio" name="temsAndCondStatus" value="LP" [(ngModel)]='termsCondition.temsAndCondStatus' style="margin-left: 30px;"><label style="margin-top: -25px;margin-left:45px;"> LP </label>
+                      </div>
+                      <div class="col-md-2">
+                       <input type="radio" name="temsAndCondStatus" value="Both" [(ngModel)]='termsCondition.temsAndCondStatus' style="margin-left: 47px;"> <label style="margin-top: -25px;margin-left: 67px;"> Both </label>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+              </div> -->
+             
+            <button type="submit" (click)='saveTerms()' class="btn btn-info">Submit</button>
+          </form>
+        </div>
+        <div class="card card-register mx-auto mt-5" *ngIf="editDiv">
+          <div class="card-header">Update Terms Condition </div><br>
+          <form action="" method="post">
+            <div>
+              <input type="hidden" name="inv_termsandCondition_master_id" id="inv_termsandCondition_master_id" [(ngModel)]="termsEdit.inv_termsandCondition_master_id" class="form-control ">
+            </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_name"  [(ngModel)]='termsEdit.inv_name' type="text"
+                      aria-describedby="nameHelp" name="inv_name" placeholder="Name" style="margin-left: 10px;width: 330px;">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <textarea class="form-control" id="termsAndCondition"  [(ngModel)]='termsEdit.termsAndCondition' type="text"
+                      aria-describedby="nameHelp" name="termsAndCondition" placeholder="Terms and Condition"></textarea>
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <div class="row">
+                      <div class="col-md-2">
+                        <input type="radio" name="temsAndCondStatus" value='PO' [(ngModel)]='termsEdit.temsAndCondStatus' checked style="margin-left: 9px;"><label style="margin-top: -25px;margin-left: 26px;"> PO </label>
+                      </div>
+                      <div class="col-md-2">
+                        <input type="radio" name="temsAndCondStatus" value="LP" [(ngModel)]='termsEdit.temsAndCondStatus' style="margin-left: 30px;"><label style="margin-top: -25px;margin-left:45px;"> LP </label>
+                      </div>
+                      <div class="col-md-2">
+                       <input type="radio" name="temsAndCondStatus" value="Both" [(ngModel)]='termsEdit.temsAndCondStatus' style="margin-left: 47px;"> <label style="margin-top: -25px;margin-left: 67px;"> Both </label>
+                      </div>
+                      </div>
+                  </div>
+                </div>
+              </div> -->
+              <div class="form-group">
+                <div class="col-md-12">
+                    <div id="input-type" class="row">
+                        <div class="col-sm-2">
+                            <label class="radio-inline">
+                                <input type="radio" name="temsAndCondStatus" value='PO' [(ngModel)]='termsEdit.temsAndCondStatus' checked > PO               
+                            </label>
+                        </div>
+                        <div class="col-sm-2">
+                            <label class="radio-inline">
+                                <input type="radio" name="temsAndCondStatus" value="LP" [(ngModel)]='termsEdit.temsAndCondStatus'> LP 
+                            </label>
+                        </div>
+                        <div class="col-sm-3">
+                            <label class="radio-inline">
+                                <input type="radio" name="temsAndCondStatus" value="Both" [(ngModel)]='termsEdit.temsAndCondStatus'> Both 
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" (click)='updateTerms(termsEdit)' class="btn btn-info">Update</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <br><br>
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Terms Condition Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>SR.NO</th>
+                  <th>Terms Code </th>
+                  <th>Description </th>
+                  <th>Rate </th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let termsCondition of termsShow">
+                  <tr *ngIf="termsCondition.termsandConditionMasterDeleteFlag == '0'">
+                    <td>{{termsCondition.inv_termsandCondition_master_id}}</td>
+                    <td>{{termsCondition.inv_name}}</td>
+                    <td>{{termsCondition.termsAndCondition}}</td>
+                    <td><button class="btn btn-success" (click)="editTerms(termsCondition.inv_termsandCondition_master_id)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deleteTerms(termsCondition.inv_termsandCondition_master_id)">Delete</button> </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

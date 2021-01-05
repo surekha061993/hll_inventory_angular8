@@ -1,1 +1,107 @@
-<p>warehousemaster works!</p>
+<app-header></app-header>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="card-header">Warehouse Master </div>
+    <div class="row">
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <div class="card card-register mx-auto mt-5" *ngIf="showDiv">
+          <div class="card-header">Add Warehouse Master</div><br>
+          <form action="" method="post">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="warehouseName"  [(ngModel)]='warehousemaster.warehouseName' type="text"
+                      aria-describedby="nameHelp" name="warehouseName" placeholder="Warehouse Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="warehouselocation"  [(ngModel)]='warehousemaster.warehouselocation' type="text"
+                      aria-describedby="nameHelp" name="warehouselocation" placeholder="Warehouse Location">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="warehousestate"  [(ngModel)]='warehousemaster.warehousestate' type="text"
+                      aria-describedby="nameHelp" name="warehousestate" placeholder="Warehouse State">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='saveWarehouse()' class="btn btn-info">Submit</button>
+          </form>
+        </div>
+        <div class="card card-register mx-auto mt-5" *ngIf="editDiv">
+          <div class="card-header">Update Warehouse Master </div><br>
+          <form action="" method="post">
+            <div>
+              <input type="hidden" name="warehouseId" id="warehouseId" [(ngModel)]="warEdit.warehouseId" class="form-control ">
+            </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="warehouseName"  [(ngModel)]='warEdit.warehouseName' type="text"
+                      aria-describedby="nameHelp" name="warehouseName" placeholder="Warehouse Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="warehouselocation"  [(ngModel)]='warEdit.warehouselocation' type="text"
+                      aria-describedby="nameHelp" name="warehouselocation" placeholder="Warehouse Location">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="warehousestate"  [(ngModel)]='warEdit.warehousestate' type="text"
+                      aria-describedby="nameHelp" name="warehousestate" placeholder="Warehouse State">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='updateWarehouse(warEdit)' class="btn btn-info">Update</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <br><br>
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Warehouse Master Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>SR.NO</th>
+                  <th>Name</th>
+                  <th>Location </th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let warehousemaster of warShow">
+                  <tr *ngIf="warehousemaster.warehouse_delete_flag == '0'">
+                    <td>{{warehousemaster.warehouseId}}</td>
+                    <td>{{warehousemaster.warehouseName}}</td>
+                    <td>{{warehousemaster.warehouselocation}}</td>
+                    <td><button class="btn btn-success" (click)="editWarehouse(warehousemaster.warehouseId)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deleteWarehouse(warehousemaster.warehouseId)">Delete</button> </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>

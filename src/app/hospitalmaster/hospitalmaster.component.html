@@ -1,1 +1,153 @@
-<p>hospitalmaster works!</p>
+<app-header></app-header>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="card-header">Hospital Master </div>
+    <div class="row">
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <div class="card card-register mx-auto mt-5" *ngIf="showDiv">
+          <div class="card-header">Add Hospital Master</div><br>
+          <form action="" method="post">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_name"  [(ngModel)]='hospital.inv_hospital_name' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_name" placeholder="Hospital Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_country"  [(ngModel)]='hospital.inv_hospital_country' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_country" placeholder="Country">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_state"  [(ngModel)]='hospital.inv_hospital_state' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_state" placeholder="State">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_district"  [(ngModel)]='hospital.inv_hospital_district' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_district" placeholder="District">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_taluka"  [(ngModel)]='hospital.inv_hospital_taluka' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_taluka" placeholder="Taluka">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_pincode"  [(ngModel)]='hospital.inv_hospital_pincode' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_pincode" placeholder="Pincode">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='saveHospital()' class="btn btn-info">Submit</button>
+          </form>
+        </div>
+        <div class="card card-register mx-auto mt-5" *ngIf="editDiv">
+          <div class="card-header">Update Hospital Master </div><br>
+          <form action="" method="post">
+            <div>
+              <input type="hidden" name="idinv_hospital_details" id="idinv_hospital_details" [(ngModel)]="hospitalEdit.idinv_hospital_details" class="form-control ">
+            </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_name"  [(ngModel)]='hospitalEdit.inv_hospital_name' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_name" placeholder="Hospital Name">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_country"  [(ngModel)]='hospitalEdit.inv_hospital_country' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_country" placeholder="Country">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_state"  [(ngModel)]='hospitalEdit.inv_hospital_state' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_state" placeholder="State">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_district"  [(ngModel)]='hospitalEdit.inv_hospital_district' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_district" placeholder="District">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_taluka"  [(ngModel)]='hospitalEdit.inv_hospital_taluka' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_taluka" placeholder="Taluka">
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_hospital_pincode"  [(ngModel)]='hospitalEdit.inv_hospital_pincode' type="text"
+                      aria-describedby="nameHelp" name="inv_hospital_pincode" placeholder="Pincode">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='updateHospital(hospitalEdit)' class="btn btn-info">Update</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <br><br>
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Hospital Master Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>SR.NO</th>
+                  <th>Hospital Name </th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let hospital of hospitalShow">
+                  <tr *ngIf="hospital.invHospitalDeleteFlag == '0'">
+                    <td>{{hospital.idinv_hospital_details}}</td>
+                    <td>{{hospital.inv_hospital_name}}</td>
+                    <td><button class="btn btn-success" (click)="editHospital(hospital.idinv_hospital_details)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deleteHospital(hospital.idinv_hospital_details)">Delete</button></td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>
+  <app-footer></app-footer>

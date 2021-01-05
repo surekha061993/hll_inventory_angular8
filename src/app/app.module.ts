@@ -29,6 +29,7 @@ import { LabstoremasterComponent } from './labstoremaster/labstoremaster.compone
 import { UomComponent } from './uom/uom.component';
 import { ChargesmasterComponent } from './chargesmaster/chargesmaster.component';
 import { HospitalmasterComponent } from './hospitalmaster/hospitalmaster.component';
+import { TermsandconditionComponent } from './termsandcondition/termsandcondition.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +51,8 @@ import { HospitalmasterComponent } from './hospitalmaster/hospitalmaster.compone
     LabstoremasterComponent,
     UomComponent,
     ChargesmasterComponent,
-    HospitalmasterComponent
+    HospitalmasterComponent,
+    TermsandconditionComponent
   ],
   imports: [
     BrowserModule,

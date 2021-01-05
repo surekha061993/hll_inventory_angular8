@@ -14,6 +14,13 @@ import { ChargesmasterComponent } from './chargesmaster/chargesmaster.component'
 import { ManufacturermasterComponent } from './manufacturermaster/manufacturermaster.component';
 import { CategorymasterComponent } from './categorymaster/categorymaster.component';
 import { UomComponent } from './uom/uom.component';
+import { TaxmasterComponent } from './taxmaster/taxmaster.component';
+import { WarehousemasterComponent } from './warehousemaster/warehousemaster.component';
+import { LabStoreMaster } from './model/labstoremaster';
+import { HospitalMaster } from './model/hospitalmaster';
+import { LabstoremasterComponent } from './labstoremaster/labstoremaster.component';
+import { HospitalmasterComponent } from './hospitalmaster/hospitalmaster.component';
+import { TermsandconditionComponent } from './termsandcondition/termsandcondition.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -33,7 +40,12 @@ const routes: Routes = [
   {path:'charges_master',component:ChargesmasterComponent},
   {path:'manufactur_master',component:ManufacturermasterComponent},
   {path:'category_master',component:CategorymasterComponent},
-  {path:'uom_master',component:UomComponent}
+  {path:'uom_master',component:UomComponent},
+  {path:'tax_master',component:TaxmasterComponent},
+  {path:'warehouse_master',component:WarehousemasterComponent},
+  {path:'lab_store',component:LabstoremasterComponent},
+  {path:'hospital_master',component:HospitalmasterComponent},
+  {path:'terms_condition',component:TermsandconditionComponent}
 ];
 
 @NgModule({

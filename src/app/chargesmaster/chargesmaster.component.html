@@ -1,18 +1,73 @@
 <app-header></app-header>
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
+<div class="content-wrapper">
+  <div class="container-fluid">
+    <div class="card-header">Charges Master </div>
+    <div class="row">
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <div class="card card-register mx-auto mt-5" *ngIf="showDiv">
+          <div class="card-header">Add Charges Master</div><br>
+          <form action="" method="post">
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_charges_name"  [(ngModel)]='charges.inv_charges_name' type="text"
+                      aria-describedby="nameHelp" name="inv_charges_name" placeholder="Charges Name">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='saveCharges()' class="btn btn-info">Submit</button>
+          </form>
+        </div>
+        <div class="card card-register mx-auto mt-5" *ngIf="editDiv">
+          <div class="card-header">Update charges Master </div><br>
+          <form action="" method="post">
+            <div>
+              <input type="hidden" name="inv_charges_Id" id="inv_charges_Id" [(ngModel)]="chargesEdit.inv_charges_Id" class="form-control ">
+            </div>
+              <div class="form-group">
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <input class="form-control" id="inv_charges_name"  [(ngModel)]='chargesEdit.inv_charges_name' type="text"
+                      aria-describedby="nameHelp" name="inv_charges_name" placeholder="charges Name">
+                  </div>
+                </div>
+              </div>
+            <button type="submit" (click)='updateCharges(chargesEdit)' class="btn btn-info">Update</button>
+          </form>
+        </div>
+      </div>
+      <div class="col-xl-6 col-sm-6 mb-3">
+        <br><br>
+        <div class="card mb-3">
+        <div class="card-header">
+          <i class="fa fa-table"></i> Charges Master Table</div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+              <thead>
+                <tr>
+                  <th>SR.NO</th>
+                  <th>Charges Name </th>
+                  <th>Edit</th>
+                  <th>Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let charges of chargesShow">
+                  <tr *ngIf="charges.status == 'Y'">
+                    <td>{{charges.inv_charges_Id}}</td>
+                    <td>{{charges.inv_charges_name}}</td>
+                    <td><button class="btn btn-success" (click)="editCharges(charges.inv_charges_Id)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deleteCharges(charges.inv_charges_Id)">Delete</button></td>
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+          </div>
+        </div>
+       </div>
+    </div>
   </div>
-  <div class="modal-body">
-    <p>Hello, World!</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
-  </div>
-</ng-template>
-
-<button class="btn btn-lg btn-outline-primary" (click)="open(content)" style="margin-left: 300px;">Launch demo modal</button>
+</div>
   <app-footer></app-footer>
