@@ -21,6 +21,8 @@ import { HospitalMaster } from './model/hospitalmaster';
 import { LabstoremasterComponent } from './labstoremaster/labstoremaster.component';
 import { HospitalmasterComponent } from './hospitalmaster/hospitalmaster.component';
 import { TermsandconditionComponent } from './termsandcondition/termsandcondition.component';
+import { ItemmasterComponent } from './itemmaster/itemmaster.component';
+import { AdditemmasterComponent } from './additemmaster/additemmaster.component';
 
 const routes: Routes = [
   {path:'',component:LoginComponent},
@@ -45,7 +47,9 @@ const routes: Routes = [
   {path:'warehouse_master',component:WarehousemasterComponent},
   {path:'lab_store',component:LabstoremasterComponent},
   {path:'hospital_master',component:HospitalmasterComponent},
-  {path:'terms_condition',component:TermsandconditionComponent}
+  {path:'terms_condition',component:TermsandconditionComponent},
+  {path:'item_master',component:ItemmasterComponent},
+  {path:'additem',component:AdditemmasterComponent}
 ];
 
 @NgModule({

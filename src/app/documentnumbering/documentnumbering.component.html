@@ -11,14 +11,14 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <!-- <select class="form-control" type="text"
-                    aria-describedby="nameHelp" (change)="onSelect($event.target.value)" name="documentlist.docid" [(ngModel)]="selectedCountry.docid" >
+                    aria-describedby="nameHelp" (change)="onSelect($event.target.value)" name="documentlist.doc_id" [(ngModel)]="selectedCountry.doc_id" >
                     <option value="0">select Documents Name</option>
-                    <option [value]="docdata.docid" *ngFor="let docdata of documentlist" [selected]="selectedCountry.docid == docdata.docid" >{{docdata.docname}}</option>
+                    <option [value]="docdata.doc_id" *ngFor="let docdata of documentlist" [selected]="selectedCountry.doc_id == docdata.doc_id" >{{docdata.docname}}</option>
                    </select> -->
-                 <select class="form-control" id="docid" type="text"
-                    aria-describedby="nameHelp" name="docdata.docid" placeholder="Documents Name" [(ngModel)]='docdata.docid' >
-                    <option value="0">select Documents Name</option>
-                    <option value={{docdata.docid}} *ngFor="let docdata of documentlist" >{{docdata.docname}}</option>
+                 <select class="form-control" id="docname" type="text"
+                    aria-describedby="nameHelp" name="docname" placeholder="Documents Name" [(ngModel)]="document.docname">
+                    <option value="0">Select Documents Name</option>
+                    <option [value]="docdata.doc_id" *ngFor="let docdata of documentlist" >{{docdata.docname}}</option>
                 </select> 
                 </div>
               </div>
@@ -58,10 +58,10 @@
             <div class="form-group">
                 <div class="form-row">
                   <div class="col-md-6">
-                    <select class="form-control" id="yearId" type="text"
-                      aria-describedby="nameHelp" name="yearId" >
+                    <select class="form-control" id="year" type="text"
+                      aria-describedby="nameHelp" name="year" >
                       <option>Select Financial Year</option>
-                      <option *ngFor="let finyear of financialyearlist" ([value])="finyear.yearId">{{finyear.yearFinancial}}</option>
+                      <option *ngFor="let finyear of financialyearlist" [value]="finyear.yearId">{{finyear.yearFinancial}}</option>
                   </select>
                   </div>
                 </div>
@@ -73,7 +73,7 @@
           <div class="card-header">Update Document Numbering</div><br>
           <form action="" method="post">
             <div>
-              <input type="hidden" name="docid" id="docid" [(ngModel)]="doc.docid" class="form-control ">
+              <input type="hidden" name="docNumId" id="docNumId" [(ngModel)]="doc.docNumId" class="form-control ">
             </div>
             <div class="form-group">
               <div class="form-row">
@@ -107,11 +107,11 @@
               <tbody>
                 <ng-container *ngFor="let document of documents">
                   <tr *ngIf="document.docDeleteFlag == '0'">
-                    <td>{{document.docid}}</td>
+                    <td>{{document.docNumId}}</td>
                     <td>{{document.docSeries}}</td>
-                    <td>{{document.docname}}</td>
-                    <td><button class="btn btn-success" (click)="editDocument(document.docid)">Edit</button> </td>
-                    <td><button class="btn btn-danger" (click)="deleteDocument(document.docid)">Delete</button> </td>
+                    <td>{{document.doc_id}}</td>
+                    <td><button class="btn btn-success" (click)="editDocument(document.docNumId)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deleteDocument(document.docNumId)">Delete</button> </td>
                   </tr>
                 </ng-container>
               </tbody>

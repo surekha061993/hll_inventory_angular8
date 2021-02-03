@@ -5,6 +5,7 @@ import { Login } from '../model/login.model';
 import { DocumentNumberingMaster } from '../model/documentnumberingmaster';
 import { Document } from '../model/document.model';
 import { FinancialYearMaster } from '../model/financialyearmaster';
+import { InventoryFinancialYear } from '../model/InventoryFinancialYear';
 /**
  * @author Surekha Londhe
  * @Date 04-01-2021
@@ -17,7 +18,7 @@ import { FinancialYearMaster } from '../model/financialyearmaster';
 export class DocumentnumberingComponent implements OnInit {
   documentlist;
   financialyearlist;
-
+  fyear:InventoryFinancialYear[];
   docdata: Document[] = [];
 
   document = new DocumentNumberingMaster();
@@ -66,32 +67,10 @@ export class DocumentnumberingComponent implements OnInit {
     response.subscribe((data) => this.doc1 = data);
     console.log("hi" + this.doc1);
   }
-  // docNumId:number
-	// docSeries:string
-	// docNo:number;
-	// document=new Document;
-	// docPrefix:string;
-	// docSuffix:string
-	// year=new FinancialYearMaster;
-	// docDeleteFlag:number;
-  // docUpdateDate:Date;
 
   saveDocuments() {
-    // let docData={"docNumId": this.docNumId,
-    //   "docSeries":this.docSeries,
-    //   "docNo":this.docNo,
-    //   "document":{docid:this.document},
-    //   "docPrefix":this.docPrefix,
-    //   "docSuffix":this.docSuffix,
-    //   "year":{year_id:this.year},
-    //   "docDeleteFlag":this.docDeleteFlag,
-    //   "docUpdateDate":this.docUpdateDate
-    //  };
-    // let response = this.documentService.addDocument(this.document1);
-    // response.subscribe((docData) => this.documents = docData);
      let response = this.documentService.addDocument(this.document);
      response.subscribe((data) => this.documents = data);
-    
   }
 
   public editDocument(docNumId: number) {

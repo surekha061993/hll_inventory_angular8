@@ -21,14 +21,14 @@ export class DocumentserviceService {
     return this.http.get("http://localhost:8082/document/getAllDocument")
   }
 
-  public deleteDocument(docid)
+  public deleteDocument(doc_id)
   {
-    return this.http.delete("http://localhost:8082/document/deleteDocument/"+docid)
+    return this.http.delete("http://localhost:8082/document/deleteDocument/"+doc_id)
   }
 
-  public editDocument(docid)
+  public editDocument(doc_id)
   {
-    return this.http.get("http://localhost:8082/document/getDocument/"+docid);
+    return this.http.get("http://localhost:8082/document/getDocument/"+doc_id);
   }
 
   public updateDocument(document)

@@ -22,7 +22,7 @@
           <div class="card-header">Update Document </div><br>
           <form action="" method="post">
             <div>
-              <input type="hidden" name="docid" id="docid" [(ngModel)]="doc.docid" class="form-control ">
+              <input type="hidden" name="doc_id" id="doc_id" [(ngModel)]="doc.doc_id" class="form-control ">
             </div>
             <div class="form-group">
               <div class="form-row">
@@ -55,10 +55,10 @@
               <tbody>
                 <ng-container *ngFor="let document of documents">
                   <tr *ngIf="document.docDeleteFlag == '0'">
-                    <td>{{document.docid}}</td>
+                    <td>{{document.doc_id}}</td>
                     <td>{{document.docname}}</td>
-                    <td><button class="btn btn-success" (click)="editDocument(document.docid)">Edit</button> </td>
-                    <td><button class="btn btn-danger" (click)="deleteDocument(document.docid)">Delete</button> </td>
+                    <td><button class="btn btn-success" (click)="editDocument(document.doc_id)">Edit</button> </td>
+                    <td><button class="btn btn-danger" (click)="deleteDocument(document.doc_id)">Delete</button> </td>
                   </tr>
                 </ng-container>
               </tbody>

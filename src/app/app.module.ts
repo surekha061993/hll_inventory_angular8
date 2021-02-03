@@ -30,6 +30,8 @@ import { UomComponent } from './uom/uom.component';
 import { ChargesmasterComponent } from './chargesmaster/chargesmaster.component';
 import { HospitalmasterComponent } from './hospitalmaster/hospitalmaster.component';
 import { TermsandconditionComponent } from './termsandcondition/termsandcondition.component';
+import { ItemmasterComponent } from './itemmaster/itemmaster.component';
+import { AdditemmasterComponent } from './additemmaster/additemmaster.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,7 +54,9 @@ import { TermsandconditionComponent } from './termsandcondition/termsandconditio
     UomComponent,
     ChargesmasterComponent,
     HospitalmasterComponent,
-    TermsandconditionComponent
+    TermsandconditionComponent,
+    ItemmasterComponent,
+    AdditemmasterComponent
   ],
   imports: [
     BrowserModule,

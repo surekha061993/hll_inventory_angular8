@@ -1,0 +1,492 @@
+<app-header></app-header>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <div class="card-header">Inventory Item Master
+            <!-- <button type="button" class="btn btn-primary" [routerLink]="['/additem']" style="    margin-left: 977px;"> +
+            </button> -->
+
+            <button type="button" class="btn btn-primary addb" data-toggle="modal" data-target=".bd-example-modal-lg"
+               > <i class="fa fa-plus"></i> </button>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xl-12 col-sm-12 mb-3">
+                <br><br>
+                <!-- Large modal -->
+                <div class="modal fade bd-example-modal-lg fad" tabindex="-1" role="dialog"
+                    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <form>
+                                <div class="modal-body">
+                                    <i class="fa fa-calendar"></i> Item Master
+                                    <hr />
+                                    <div class="row">
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Form Type:</label>
+                                                <input type="text" class="form-control" id="recipient-name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Category
+                                                    Name:</label>
+                                                <input type="text" class="form-control" id="recipient-name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Item Name:</label>
+                                                <input type="text" class="form-control" id="recipient-name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Manufacturer
+                                                    Name:</label>
+                                                <input type="text" class="form-control" id="recipient-name">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <div class="form-group">
+                                                <label for="recipient-name" class="col-form-label">Status:</label>
+                                                <input type="text" class="form-control" id="recipient-name">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="container-fluid">
+                                        <div class="card card0 border-0">
+                                            <br>
+                                            <nav>
+                                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                    <a class="nav-item nav-link active" id="nav-home-tab"
+                                                        data-toggle="tab" href="#nav-home" role="tab"
+                                                        aria-controls="nav-home" aria-selected="true"><i
+                                                            class="fa fa-user"></i> General Info</a>
+                                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+                                                        href="#nav-profile" role="tab" aria-controls="nav-profile"
+                                                        aria-selected="false"><i class="fa fa-rupee"></i> Purchase/Issue
+                                                        Info</a>
+                                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab"
+                                                        href="#nav-contact" role="tab" aria-controls="nav-contact"
+                                                        aria-selected="false"><i class="fa fa-home"></i> WareHouse
+                                                        Info</a>
+                                                </div>
+                                            </nav>
+                                            <div class="tab-content" id="nav-tabContent">
+
+                                                <div class="tab-pane fade show active" id="nav-home" role="tabpanel"
+                                                    aria-labelledby="nav-home-tab">
+                                                    <br>
+                                                    <div class="container">
+                                                        <div class="row">
+                                                            <div class="col-sm-2">
+                                                                <div class="form-group row" >
+                                                                    <label class="TextFont" class="col-sm-9 col-form-label">Inventory Item <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-2">																				 
+                                                                        <input type="checkbox" id="chkInventoryItem" value="1" > 
+                                                                    </div>
+                                                                </div>	
+                                                                
+                                                                <div class="form-group row" >
+                                                                    <label class="TextFont" class="col-sm-9 col-form-label">Purchase Item  <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-2">																				 
+                                                                        <input type="checkbox" id="chkInventoryItem" value="1" > 
+                                                                    </div>
+                                                                </div>	
+                                                                <div class="form-group row" >
+                                                                    <label class="TextFont" class="col-sm-9 col-form-label">Issue Item <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-2">																				 
+                                                                        <input type="checkbox" id="chkInventoryItem" value="1" > 
+                                                                    </div>
+                                                                </div>	
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                    <div class="form-group" >
+                                                                        <label class="TextFont" class="col-sm-6 col-form-label">Date<b style="color: red;">*</b></label>
+                                                                        <div class="col-sm-6">																				 
+                                                                        <input type="date" id="txtLeadTime" name="txtLeadTime" value="29/01/2021" placeholder="Date"> 
+                                                                        </div>
+                                                                    </div>	
+                                                                    <div class="form-group">
+                                                                        <label for="firstname" class="col-sm-12 col-form-label">Reorder Stock <b style="color: red;">*</b></label>
+                                                                        <div class="col-sm-12">
+                                                                            <input type="text" id="txtMinStock" name="" placeholder="ReOrder Stock Level" maxlength="8" class="form-control input-SmallText">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="firstname" class="col-sm-12 col-form-label">HSN Code<b style="color: red;">*</b></label>
+                                                                        <div class="col-sm-12">
+                                                                            <input type="text" id="txtHSNCode" name="txtHSNCode" placeholder="HSN Code" class="form-control input-SmallText">
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="firstname" class="col-sm-12 col-form-label">Temperature<b style="color: red;">*</b></label>
+                                                                        <div class="col-sm-12">
+                                                                            <input type="text" id="txtTemp" name="txtTemp" placeholder="temperature" class="form-control input-SmallText">
+                                                                        </div>
+                                                                    </div>
+                                                            </div>
+                                                            <div class="col-sm-3">
+                                                                <div class="form-group">
+                                                                    <label for="firstname" class="col-sm-12 col-form-label">Alias Name <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-12">
+                                                                        <input type="text" id="txtAliasName" name="" placeholder="Alias Name" maxlength="120" class="form-control input-SmallText">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="firstname" class="col-sm-12 col-form-label">Max Stock <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-12">
+                                                                        <input type="text" id="txtMaxStock" name="" placeholder="Max Stock" maxlength="8" class="form-control input-SmallText">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="firstname" class="col-sm-12 col-form-label">Other Info <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-12">
+                                                                        <input type="text" id="txtOtherInfo" name="txtOtherInfo" placeholder="Other Info" maxlength="40" class="form-control input-SmallText">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="firstname" class="col-sm-12 col-form-label">Item Specification Info <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-12">
+                                                                        <input type="text" id="txtItemSpecficInfo" name="txtItemSpecficInfo" placeholder="Item Specification Info" maxlength="5000" class="form-control input-SmallText">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <div class="form-group">
+                                                                    <label for="firstname" class="col-sm-12 col-form-label">Lead Time <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-12">
+                                                                        <input type="text" id="txtNewleadtime" name="txtNewleadtime" placeholder="Lead Time" maxlength="6" class="form-control input-SmallText">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="firstname" class="col-sm-12 col-form-label"></label>
+                                                                    <div class="col-sm-12">
+                                                                        <!-- <input type="text" id="txtNewleadtime" name="txtNewleadtime" placeholder="Lead Time" maxlength="6" class="form-control input-SmallText"> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="firstname" class="col-sm-12 col-form-label"></label>
+                                                                    <div class="col-sm-12">
+                                                                        <!-- <input type="text" id="txtNewleadtime" name="txtNewleadtime" placeholder="Lead Time" maxlength="6" class="form-control input-SmallText"> -->
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="firstname" class="col-sm-12 col-form-label">Select Tax <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-12">
+                                                                        <input type="text" id="txtNewleadtime" name="txtNewleadtime" placeholder="Lead Time" maxlength="6" class="form-control input-SmallText">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    &nbsp; &nbsp; &nbsp; &nbsp; <button class="btn btn-info" type="submit"><i class="fa fa-plus"></i></button>
+                                                                    &nbsp;<button class="btn btn-info" type="submit"><i class="fa fa-minus"></i></button>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-2">
+                                                                <div class="form-group">
+                                                                    <label for="firstname" class="col-sm-12 col-form-label"></label>
+                                                                    <div class="col-sm-12">
+                                                                        <select id="ileadtimeselector">         
+                                                                            <option value="">Select</option>
+                                                                            <option value="hours">Hours</option>
+                                                                            <option value="days">Days</option>
+                                                                            <option value="months">Months</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="firstname" class="col-sm-12 col-form-label">Criticality <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-12">
+                                                                        <select id="criticalityselector">         
+                                                                            <option value="">Select</option>
+                                                                            <option value="Vital">Vital</option>
+                                                                            <option value="Essential">Essential</option>
+                                                                            <option value="Desirable">Desirable</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="firstname" class="col-sm-12 col-form-label">Purchase Strategy <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-12">
+                                                                        <select id="purchaseStrategy">         
+                                                                            <option value="">Select</option>
+                                                                            <option value="Yearly">Yearly</option>
+                                                                            <option value="Quarterly">Quarterly</option>
+                                                                            <option value="Monthly">Monthly</option>
+                                                                            <option value="Weekly">Weekly</option>
+                                                                            <option value="Daily">Daily</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                
+                                                                <div class="form-group" id="" style="margin-right: 0%;margin-left: 10%;margin-top:-7px;">
+
+                                                                    <select style="height: 100px;" class="col-md-12-1" name="selectbox" multiple="multiple" id="lstBoxforTax">
+                                                                    </select>
+                                                            </div>
+
+                                                            </div>
+                                                            </div>
+                                                           </div>
+                                                    
+                                                    
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-profile" role="tabpanel"
+                                                    aria-labelledby="nav-profile-tab">
+                                                    <br>
+                                                    <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-sm">
+                                                            <table border="1">
+                                                                <thead>
+                                                                    <tr
+                                                                        style="text-align: center;background-color: #696969;color: white">
+                                                                        <th
+                                                                            style="text-align: center; width:3%;">
+                                                                            <label class="TextFont"># F</label>
+                                                                        </th>
+                                                                        <th
+                                                                            style="text-align: center; width:3%;">
+                                                                            <label class="TextFont">Qty</label>
+                                                                        </th>
+                                                                        <th
+                                                                            style="text-align: center; width:3%;">
+                                                                            <label class="TextFont">UOM</label>
+                                                                        </th>
+                                                                        <!-- <th style="text-align: center; width:3%;"><label class="TextFont">Apply for sales</label></th> -->
+                                                                    </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td><input type="text" id="F1"
+                                                                                value="F1"
+                                                                                class="form-control input-SmallText"
+                                                                                readonly="readonly" width="3%">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                id="txtPurFactor1"
+                                                                                name="txtPurFactor1"
+                                                                                class="form-control input-SmallText">
+                                                                        </td>
+                                                                        <td><input type="text"
+                                                                                id="txtPurFactor1UOM"
+                                                                                class="typeahead form-control input-SmallText"
+                                                                                maxlength="40"
+                                                                                name="txtPurFactor1UOM"
+                                                                                placeholder="uom">
+                                                                            <ul class="typeahead dropdown-menu"
+                                                                                style="max-height:220px;overflow:auto;">
+                                                                            </ul>
+                                                                        </td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table><br>
+                                                            <button type="submit" class="btn btn-info"> Add
+                                                        </button>
+                                                        &nbsp;<button type="submit" class="btn btn-secondary"> Cancel
+                                                        </button>
+
+                                                        </div>
+                                                        
+                                                        <div class="col-sm">
+                                                            <form>
+                                                                <div class="form-group row">
+                                                                    <label for="firstname" class="col-sm-4 col-form-label">Party Name <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-8">
+                                                                      <input type="text" class="form-control" required="true" name="txtContPartyName" id="txtContPartyName" placeholder="Party Name" style="margin-left: 4px;" onkeyup="autoSugtContPartyName('txtContPartyName','onchange')">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label for="firstname" class="col-sm-4 col-form-label"> Priority  <b style="color: red;"> * </b></label>
+                                                                    <div class="col-sm-8">
+                                                                        <select class="form-control input-SmallText" name="selpriority" id="selpriority" placeholder="Priority">
+                                                                            <option value="0">Select</option>
+                                                                            <option value="High">High</option>
+                                                                            <option value="Medium">Medium</option>
+                                                                            <option value="Low">Low</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label for="firstname" class="col-sm-4 col-form-label"> Ref No </label>
+                                                                    <div class="col-sm-8">
+                                                                      <input type="text" class="form-control" required="true" name="txtContPartyName" id="txtContPartyName" placeholder="Party Name" style="margin-left: 4px;" onkeyup="autoSugtContPartyName('txtContPartyName','onchange')">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label for="firstname" class="col-sm-4 col-form-label"> From Date </label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="date" id="txtFormDate" name="txtFormDate" value="28/01/2021" placeholder="Form Date">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label for="firstname" class="col-sm-4 col-form-label"> To Date </label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="date" id="txtToDate" name="txtToDate"  value="28/01/2021" placeholder="To Date">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label for="firstname" class="col-sm-4 col-form-label"> WithContract </label>
+                                                                    <div class="col-sm-8">
+                                                                        <input id="chkWithOrWout" name="chkWithOrWout" class="chkbox" type="checkbox">
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="col-sm">
+                                                            <form>
+                                                                <div class="form-group row">
+                                                                    <label for="firstname" class="col-sm-4 col-form-label">Rate <b style="color: red;">*</b></label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="text" required="true" style="margin-left: 4px;text-align: right;" id="txtRate" class="form-control input-SmallText" name="txtRate" placeholder="Rate" value="0">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label for="firstname" class="col-sm-4 col-form-label"> MRP  <b style="color: red;"> * </b></label>
+                                                                    <div class="col-sm-8">
+                                                                        <input id="txtMRP" name="dob" type="text" placeholder="MRP" class="form-control input-SmallText" style="margin-left: 4px;text-align: right;" value="0">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label for="firstname" class="col-sm-4 col-form-label"> Profit </label>
+                                                                    <div class="col-sm-8">
+                                                                      <input input type="text" class="form-control input-SmallText" required="true" name="txtProfit" id="txtProfit" placeholder="Profit" readonly="readonly" style="margin-left: 4px; text-align: right; background: yellow none repeat scroll 0% 0%;" value="0">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group row">
+                                                                    <label for="firstname" class="col-sm-4 col-form-label"> Attachement </label>
+                                                                    <div class="col-sm-8">
+                                                                        <input type="file" id="fileUp" name="fileUp" style="width: 120%;">
+                                                                        <input type="hidden" id="fileName" name="fileName" value="">
+                                                                <i type="button" style="margin-left: 6px;cursor: pointer;" class="fa fa-eye fa-1x" id="hiddenRv1"></i>
+                                                            
+                                                                <label for="fileName" id="showfileName"><b style="color: red;"></b></label>    
+                                                                    </div>
+                                                                </div>
+                                                                <button type="submit" class="btn btn-info"> Add
+                                                                </button>
+                                                                &nbsp;<button type="submit" class="btn btn-secondary"> Cancel
+                                                                </button>
+        
+                                                            </form>
+                                                        </div>
+                                                      </div>
+                                                      <div class="row">
+                                                          <div class="col-sm-4">
+                                                            <div class="col-md-4-1" style="height: 100px;margin-bottom:0px;">
+                                                                <div style="height: 250px; margin-left: 0%;">
+                                                                    <div style="padding: 1%; font-weight: normal; height: 30%; overflow-y: scroll; border: 1px solid #436a9d;">
+                                                                        <div id="PurchaseInfoTable"></div>
+                                                                    </div>
+                                                                </div>
+                                                            <div id="PurchaseInfoTableAjax" style="visibility: hidden;"></div>
+                                                            </div>
+                                                          </div>
+                                                          <div class="col-sm-8">
+                                                            <div class="col-md-4-1" style="height: 100px;margin-bottom:0px;">
+                                                                <div style="height: 250px; margin-left: 0%;">
+                                                                    <div style="padding: 1%; font-weight: normal; height: 30%; overflow-y: scroll; border: 1px solid #436a9d;">
+                                                                        <div id="PurchaseInfoTable"></div>
+                                                                    </div>
+                                                                </div>
+                                                            <div id="PurchaseInfoTableAjax" style="visibility: hidden;"></div>
+                                                            </div>
+                                                          </div>
+  
+                                                      </div>
+                                                </div>
+                                                </div>
+                                                <div class="tab-pane fade" id="nav-contact" role="tabpanel"
+                                                        aria-labelledby="nav-contact-tab">
+                                                        <div style="height: 85%; margin-left: 2%;margin-top:5px;">
+                                                            <div style="width: 100%; padding: 1%; font-weight: bold; height: 180Px; overflow-y: scroll;">
+                                                                
+                                                                <table id="WareHouseInfoTable" class="datatable table table-striped table-bordered table-hover" cellspacing="0" cellpadding="0" border="1">
+                                                                    <thead>
+                                                                        <tr>
+                                                                            <th class="col-sm-1-1 center">Wh Id</th>
+                                                                            <th class="col-sm-1-1 center">Wh Name</th>
+                                                                            <th class="col-sm-1-1 center">Wh Location</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody id="WareHouseInfoTableList" style="height: 87%; overflow-y: scroll;">
+                                                                        <tr>
+                                                                            
+                                                                            <td><input type="text" id="txtItemWareHouseId" readonly="readonly" class="form-control input-SmallText" placeholder="WH Id"></td>
+                                                                                
+                                                                            <td><div id="divtxtwhName" style="text-align: left;"><input type="text" id="txtwhName" class="typeahead form-control input-SmallText" placeholder="Wh name"><b style="color: red;">*</b></div></td>
+                                                        
+                                                                            <td><input type="text" id="txtwhLocation" class="form-control input-SmallText" placeholder="Wh location"></td>
+                                                                                
+                                                                        </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                        
+                                                            </div>
+                                                            <input type="hidden" id="txtItemWareHouseId">
+                                                        
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Save</button>
+                                        <button type="button" class="btn btn-primary">Cancel</button>
+                                    </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                Search By : Item Name : <input type="text"> &nbsp;&nbsp;<button class="btn btn-info"
+                    style="padding-top: 1px;"> Search </button>
+                <br><br>
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i> Inventory Item Master Table</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>SR.NO</th>
+                                        <th>Manufacturer Name</th>
+                                        <th>Item Name</th>
+                                        <th>Item Category</th>
+                                        <th>Lead Time</th>
+                                        <th>Duration</th>
+                                        <th>Date</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <ng-container>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td><button class="btn btn-success">Edit</button> </td>
+                                            <td><button class="btn btn-danger">Delete</button> </td>
+                                        </tr>
+                                    </ng-container>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>

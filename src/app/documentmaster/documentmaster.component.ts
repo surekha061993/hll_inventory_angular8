@@ -45,16 +45,16 @@ export class DocumentmasterComponent implements OnInit {
      alert("Added Successfully");
      window.location.reload();
 
-    //this.documentService.addDocument(this.document).subscribe(rs=>{this.document.docid=rs});
+    //this.documentService.addDocument(this.document).subscribe(rs=>{this.document.doc_id=rs});
     //this.router.navigate(['admin'],{relativeTo:this.route})
   }
 
-  public editDocument(docid:number)
+  public editDocument(doc_id:number)
   {
     this.showDiv=false;
     this.editDiv=true;
 
-    let response=this.documentService.editDocument(docid);
+    let response=this.documentService.editDocument(doc_id);
     response.subscribe(data =>{
     console.log(data);
     this.doc=data});
@@ -70,9 +70,9 @@ export class DocumentmasterComponent implements OnInit {
     });
    }
   
-  public deleteDocument(docid:number)
+  public deleteDocument(doc_id:number)
   {
-    let response=this.documentService.deleteDocument(docid);
+    let response=this.documentService.deleteDocument(doc_id);
     response.subscribe((data)=>this.documents=data);
   }
 
